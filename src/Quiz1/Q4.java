@@ -1,28 +1,24 @@
 package Quiz1;
 
-import java.util.Scanner;
 public class Q4 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner input = new Scanner (System.in);
-		System.out.println("Enter the value of a: ");
-		double a = input.nextDouble();
-		System.out.println("Enter the value of b: ");
-		double b = input.nextDouble();
-		input.close();
-		
-		double hold = a;
-		a = b;
-		b = hold;
-		
-		System.out.println("a: ");
-		System.out.println(a);
-		System.out.println("b: ");
-		System.out.println(b);
-
+		double[] arr = {8,6,19,2,3,2,1};
+		System.out.println("Maximum is "+max(arr, 0, 6));
+	}
+	
+	public static double max(double[] arr, int start, int end) {
+		if (end == start) {
+			return arr[start];
+		}
+		int mid = (start + end) / 2;
+		double max1 = max(arr, start, mid);
+		double max2 = max(arr, mid+1, end);
+		if (max1 > max2) {
+			return max1;
+		} else {
+			return max2;
+		}
 	}
 
 }
-
-//Consult: https://www.geeksforgeeks.org/returning-multiple-values-in-java/
